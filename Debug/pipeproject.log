@@ -1,37 +1,10 @@
 ﻿  main.cpp
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall NE::pipe_type(void)" (?pipe_type@NE@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall NE::rotate(void)" (?rotate@NE@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall NE::set_water_true(void)" (?set_water_true@NE@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall NE::set_water_false(void)" (?set_water_false@NE@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall NE::get_water(void)" (?get_water@NE@@UAE_NXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall ES::rotate(void)" (?rotate@ES@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall ES::pipe_type(void)" (?pipe_type@ES@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall ES::set_water_true(void)" (?set_water_true@ES@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall ES::set_water_false(void)" (?set_water_false@ES@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall ES::get_water(void)" (?get_water@ES@@UAE_NXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall SW::rotate(void)" (?rotate@SW@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall SW::pipe_type(void)" (?pipe_type@SW@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall SW::set_water_true(void)" (?set_water_true@SW@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall SW::set_water_false(void)" (?set_water_false@SW@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall SW::get_water(void)" (?get_water@SW@@UAE_NXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall WN::rotate(void)" (?rotate@WN@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall WN::pipe_type(void)" (?pipe_type@WN@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall WN::set_water_true(void)" (?set_water_true@WN@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall WN::set_water_false(void)" (?set_water_false@WN@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall WN::get_water(void)" (?get_water@WN@@UAE_NXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall vertical::rotate(void)" (?rotate@vertical@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall vertical::pipe_type(void)" (?pipe_type@vertical@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall vertical::set_water_true(void)" (?set_water_true@vertical@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall vertical::set_water_false(void)" (?set_water_false@vertical@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall vertical::get_water(void)" (?get_water@vertical@@UAE_NXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall horizontal::rotate(void)" (?rotate@horizontal@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall horizontal::pipe_type(void)" (?pipe_type@horizontal@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall horizontal::set_water_true(void)" (?set_water_true@horizontal@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall horizontal::set_water_false(void)" (?set_water_false@horizontal@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall horizontal::get_water(void)" (?get_water@horizontal@@UAE_NXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall four_way::rotate(void)" (?rotate@four_way@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall four_way::pipe_type(void)" (?pipe_type@four_way@@UAEHXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall four_way::set_water_true(void)" (?set_water_true@four_way@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual void __thiscall four_way::set_water_false(void)" (?set_water_false@four_way@@UAEXXZ)
-main.obj : error LNK2001: unresolved external symbol "public: virtual bool __thiscall four_way::get_water(void)" (?get_water@four_way@@UAE_NXZ)
-C:\Users\alireza\Desktop\ap981\pipeproject\Debug\pipeproject.exe : fatal error LNK1120: 35 unresolved externals
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(370): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(378): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(386): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(394): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(402): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(410): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(418): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  pipeproject.vcxproj -> C:\Users\alireza\Desktop\ap981\pipeproject\Debug\pipeproject.exe
+  pipeproject.vcxproj -> C:\Users\alireza\Desktop\ap981\pipeproject\Debug\pipeproject.pdb (Partial PDB)

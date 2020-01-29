@@ -145,7 +145,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="curved.cpp" />
+    <ClCompile Include="ES.cpp" />
+    <ClCompile Include="flat.cpp" />
+    <ClCompile Include="four_way.cpp" />
+    <ClCompile Include="horizontal.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NE.cpp" />
+    <ClCompile Include="pipe.cpp" />
+    <ClCompile Include="SW.cpp" />
+    <ClCompile Include="vertical.cpp" />
+    <ClCompile Include="WN.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="curved.h" />
+    <ClInclude Include="ES.h" />
+    <ClInclude Include="flat.h" />
+    <ClInclude Include="four_way.h" />
+    <ClInclude Include="horizontal.h" />
+    <ClInclude Include="NE.h" />
+    <ClInclude Include="pipe.h" />
+    <ClInclude Include="SW.h" />
+    <ClInclude Include="vertical.h" />
+    <ClInclude Include="WN.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
