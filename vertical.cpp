@@ -1,7 +1,13 @@
 #include "vertical.h"
 void vertical::rotate()
 {
-    vertical::type = 2; 
+	if (vertical::i > 1)
+	{
+		vertical::i = 0;
+	}
+	vertical::type = 2 + vertical::i; 
+	i++;
+	
 }
 int vertical::pipe_type()
 {

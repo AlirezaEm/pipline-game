@@ -1,7 +1,14 @@
 #include "ES.h"
 void ES::rotate()
 {
-    ES::type = 6;
+	if (ES::i == 2)
+	{
+		ES::i = -2;
+	}
+
+
+	ES::type = 6 + ES::i;
+	++ES::i;
 }
 int ES::pipe_type()
 {

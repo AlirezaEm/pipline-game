@@ -1,7 +1,14 @@
 #include "SW.h"
 void SW::rotate()
 {
-    SW::type = 7;
+	if (SW::i == 1)
+	{
+		SW::i = -3;
+	}
+
+
+	SW::type = 7 + SW::i;
+	++SW::i;
 }
 int SW::pipe_type()
 {

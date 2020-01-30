@@ -1,7 +1,14 @@
 #include "NE.h"
 void NE::rotate()
 {   
-    NE::type=5;
+	if (NE::i == 3)
+	{
+		NE::i = -1;
+	}
+
+
+	NE::type = 5 + NE::i;
+	++NE::i;
 }
 int NE::pipe_type()
 {

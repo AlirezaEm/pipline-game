@@ -8,6 +8,7 @@ class NE : public curved
 private:
     
 public:
+	int i=0;
     int type = 4;
     virtual int pipe_type();
     virtual void rotate();

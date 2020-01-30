@@ -25,8 +25,8 @@ int main()
 {
 	array<array<pipe*, 5>, 5> ground;
 	fillground(ground);
-	ground[0][0] = new NE();
-	ground[0][1] = new horizontal();
+	ground[0][0] = new vertical();
+	ground[0][1] = new WN();
 	ground[0][2] = new SW();
 	ground[1][2] = new four_way();
 	ground[2][2] = new WN();
@@ -50,20 +50,25 @@ int main()
 	ground[4][3]= new four_way();
 	ground[4][4]= new SW(); wiiiiin */
 
-	runground(ground);
+	//runground(ground);
 
 	//cout<<ground[0][3]->get_water()<<endl;
 	//cout<<ground[1][4]->get_water()<<endl;
 	//cout<<ground[0][4]->get_water()<<endl;
 	//cout<<ground[1][3]->get_water()<<endl;
 	//cout<<ground[1][1]->get_water()<<endl;
-
+	/*cout << ground[0][0]->pipe_type() << endl;
+	ground[0][0]->rotate();
+	cout << ground[0][0]->pipe_type() << endl;
+	ground[0][0]->rotate();
+	cout << ground[0][0]->pipe_type() << endl;*/
 
 
 
 
 	
 	mainPage(ground);
+
 	deleteground(ground);
 	return 0;
 }
@@ -321,6 +326,7 @@ void mainPage(array<array<pipe*, 5>, 5> &ground)
 				{
 					game_ground(ground);
 					
+					
 				}
 
 				if ((event.mouseButton.x >= 42 && event.mouseButton.x <= 270) && (event.mouseButton.y >= 250 && event.mouseButton.y <= 365))
@@ -354,73 +360,10 @@ void game_ground(array<array<pipe*, 5>, 5> &ground)
 
 	Sprite sp(image);
 
-
+	int rashti=2;
 	while (window.isOpen())
 	{
 		Event event;
-		for (int i = 0; i < 5; i++)
-		{
-			for (int j = 0; j < 5; j++)
-			{
-				if (ground[i][j]->pipe_type() == 1)
-				{
-					Texture pic;
-					pic.loadFromFile("fourway.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-				if (ground[i][j]->pipe_type() == 2)
-				{
-					Texture pic;
-					pic.loadFromFile("horizental.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-				if (ground[i][j]->pipe_type() == 3)
-				{
-					Texture pic;
-					pic.loadFromFile("vertical.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-				if (ground[i][j]->pipe_type() == 4)
-				{
-					Texture pic;
-					pic.loadFromFile("ne.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-				if (ground[i][j]->pipe_type() == 5)
-				{
-					Texture pic;
-					pic.loadFromFile("es.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-				if (ground[i][j]->pipe_type() == 6)
-				{
-					Texture pic;
-					pic.loadFromFile("sw.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-				if (ground[i][j]->pipe_type() == 7)
-				{
-					Texture pic;
-					pic.loadFromFile("wn.png");
-					Sprite ss(pic);
-					ss.setPosition(j * 118, i * 118);
-					window.draw(ss);
-				}
-
-			}
-		}
 		while (window.pollEvent(event))
 		{
 
@@ -428,35 +371,99 @@ void game_ground(array<array<pipe*, 5>, 5> &ground)
 			{
 				window.close();
 			}
-			//window.clear();
-			//window.draw(sp);
 			
-			//window.display();
-			//cout << ground[0][0]->pipe_type() << endl;
+			for (int i = 0; i < 5; i++)
+			{
+				for (int j = 0; j < 5; j++)
+				{
+					if (ground[i][j]->pipe_type() == 1)
+					{
+						Texture pic;
+						pic.loadFromFile("fourway.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+					if (ground[i][j]->pipe_type() == 2)
+					{
+						Texture pic;
+						pic.loadFromFile("horizental.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+					if (ground[i][j]->pipe_type() == 3)
+					{
+						Texture pic;
+						pic.loadFromFile("vertical.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+					if (ground[i][j]->pipe_type() == 4)
+					{
+						Texture pic;
+						pic.loadFromFile("ne.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+					if (ground[i][j]->pipe_type() == 5)
+					{
+						Texture pic;
+						pic.loadFromFile("es.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+					if (ground[i][j]->pipe_type() == 6)
+					{
+						Texture pic;
+						pic.loadFromFile("sw.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+					if (ground[i][j]->pipe_type() == 7)
+					{
+						Texture pic;
+						pic.loadFromFile("wn.png");
+						Sprite ss(pic);
+						ss.setPosition(j * 118, i * 118);
+						window.draw(ss);
+					}
+
+				}
+			}
+			window.display();
+	
 			if (event.mouseButton.button == Mouse::Left)
 			{
 				if ((event.mouseButton.x >= 0 && event.mouseButton.x <= 118) && (event.mouseButton.y >= 0 && event.mouseButton.y <= 118))
 				{
-					ground[0][0]->rotate();
-					cout << "kiliiiiik";
-					break;
+					if (rashti % 2 ==0 )
+					{
+						ground[0][0]->rotate();
 
+					}
+					rashti++;
 				}
+				if ((event.mouseButton.x >= 118 && event.mouseButton.x <= 238) && (event.mouseButton.y >= 0 && event.mouseButton.y <= 118))
+				{
+					
+					if (rashti % 2 == 0)
+					{
+						ground[0][1]->rotate();
+
+					}
+					rashti++;
+
+					
+				}
+
 			}
-			//cout << ground[0][0]->pipe_type() << endl;
-		
-			//window.display();
 		}
-		
-		window.display();
-		//window.clear();
-		//window.draw(sp);
-		
-
-
-		
-		//window.display();
-
+	
 	}
 
 }

@@ -7,6 +7,7 @@ class ES : public curved
 private:
     
 public:
+	int i = 0;
     virtual void rotate();
     int type = 5;
     virtual int pipe_type();

@@ -6,6 +6,7 @@ class WN : public curved
 private:
     
 public:
+	int i = 0;
     virtual void rotate();
     int type = 7;
     virtual int  pipe_type();

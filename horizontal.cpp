@@ -1,7 +1,12 @@
 #include "horizontal.h"
 void horizontal::rotate()
 {
-    horizontal::type = 3;
+	if (horizontal::i == 1)
+	{
+		horizontal::i = -1;
+	}
+	horizontal::type = 3 + horizontal::i;
+	i++;
 }
 int horizontal::pipe_type()
 {

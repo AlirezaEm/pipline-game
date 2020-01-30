@@ -5,6 +5,7 @@ class horizontal : public flat
 {
 private:
 public:
+	int i = 0;
     int type = 2;
     virtual void rotate();
     virtual int pipe_type();

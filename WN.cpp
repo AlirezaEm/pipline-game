@@ -1,7 +1,15 @@
 #include "WN.h"
 void WN::rotate()
 {
-    WN::type = 4;
+	if (WN::i == 4)
+	{
+
+		WN::i = 0;
+	}
+
+
+	WN::type = 4 + WN::i;
+	++WN::i;
 }
 int WN::pipe_type()
 {
