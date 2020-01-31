@@ -1,3 +1,10 @@
-﻿  vertical.cpp
+﻿  main.cpp
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(484): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(492): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(500): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(508): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(516): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(524): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\alireza\desktop\ap981\pipeproject\pipeproject\main.cpp(532): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   pipeproject.vcxproj -> C:\Users\alireza\Desktop\ap981\pipeproject\Debug\pipeproject.exe
   pipeproject.vcxproj -> C:\Users\alireza\Desktop\ap981\pipeproject\Debug\pipeproject.pdb (Partial PDB)

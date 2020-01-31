@@ -20,35 +20,52 @@ void about();
 void fillground(array<array<pipe*, 5>, 5> &);
 void deleteground(array<array<pipe*, 5>, 5> &);
 void runground(array<array<pipe*, 5>, 5> &);
+void insurance_answer(array<array<pipe*, 5>, 5> &);
+void win();
 
 int main()
 {
 	array<array<pipe*, 5>, 5> ground;
 	fillground(ground);
-	ground[0][0] = new vertical();
-	ground[0][1] = new WN();
-	ground[0][2] = new SW();
+	
+
+
+	
+	
+	/*ground[0][0] = new NE();
+	ground[0][1] = new vertical();
+	ground[0][2] = new horizontal();
+	ground[0][3] = new horizontal();
+	ground[0][4] = new SW();
+	ground[1][4] = new horizontal();
+	ground[2][4] = new vertical();
+	ground[3][4] = new vertical();
+	ground[4][4] = new vertical();*/
+	
+	/*ground[0][0] = new NE();
+	ground[0][1] = new vertical();
+	ground[0][2] = new NE();
 	ground[1][2] = new four_way();
 	ground[2][2] = new WN();
-	ground[2][1] = new NE();
-	ground[1][1] = new ES();
+	ground[2][1] = new ES();
+	ground[1][1] = new WN();
 	ground[1][3] = new horizontal();
 	ground[1][4] = new SW();
 	ground[2][4] = new WN();
 	ground[2][3] = new ES();
 	ground[3][3] = new NE();
 	ground[3][4] = new SW();
-	ground[4][4] = new vertical();
+	ground[4][4] = new vertical();*/
 
 	/*ground[0][0]= new vertical();
-	ground[1][0]= new four_way();
-	ground[2][0]= new vertical();
-	ground[3][0]= new vertical();
+	ground[1][0]= new vertical();
+	ground[2][0]= new horizontal();
+	ground[3][0]= new four_way();
 	ground[4][0]= new NE();
 	ground[4][1]= new horizontal;
 	ground[4][2]= new four_way();
 	ground[4][3]= new four_way();
-	ground[4][4]= new SW(); wiiiiin */
+	ground[4][4]= new SW(); */
 
 	//runground(ground);
 
@@ -150,92 +167,155 @@ void runground(array<array<pipe*, 5>, 5> &ground)
 					{
 						ground[i][j]->set_water_true();
 						in_out[i + 1][j] = 'n';
-						if (ground[i][j - 1]->get_water() == 1 && (ground[i][j - 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 4))
+						if (i != 0 && j != 0)
 						{
-							in_out[i][j + 1] = 'w';
+							if (ground[i][j - 1]->get_water() == 1 && (ground[i][j - 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 4))
+							{
+								in_out[i][j + 1] = 'w';
+							}
 						}
-						if (ground[i][j + 1]->get_water() == 1 && (ground[i][j + 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 6))
+						
+						if (j != 4 && i != 0)
 						{
-							in_out[i][j - 1] = 'e';
+							if (ground[i][j + 1]->get_water() == 1 && (ground[i][j + 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 6))
+							{
+								in_out[i][j - 1] = 'e';
+							}
 						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 3)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i + 1][j] = 'n';
+						if (i != 4)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i + 1][j] = 'n';
+						}
+
 					}
 					if (ground[i][j]->pipe_type() == 4)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i][j + 1] = 'w';
+						if (j!=4)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i][j + 1] = 'w';
+						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 7)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i][j - 1] = 'e';
+						if (j != 0)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i][j - 1] = 'e';
+						}
+						
 					}
 				}
 				if (in_out[i][j] == 'e')
 				{
 					if (ground[i][j]->pipe_type() == 2)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i][j - 1] = 'e';
-
+						if (j != 0)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i][j - 1] = 'e';
+						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 1)
 					{
 						ground[i][j]->set_water_true();
 						in_out[i][j - 1] = 'e';
-						if (ground[i - 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 6))
+						if (i != 0 )
 						{
-							in_out[i + 1][j] = 'n';
+							if (ground[i - 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 6))
+							{
+								in_out[i + 1][j] = 'n';
+							}
 						}
-						if (ground[i + 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 4))
+						if (i != 0 && i != 4)
 						{
-							in_out[i - 1][j] = 's';
+							if (ground[i + 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 4))
+							{
+								in_out[i - 1][j] = 's';
+							}
 						}
+						
+						
+						
 					}
 					if (ground[i][j]->pipe_type() == 5)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i + 1][j] = 'n';
+						if (i != 4)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i + 1][j] = 'n';
+						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 4)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i - 1][j] = 's';
+						if (i != 0)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i - 1][j] = 's';
+						}
+				
 					}
+
 				}
 				if (in_out[i][j] == 'w')
 				{
 					if (ground[i][j]->pipe_type() == 1)
 					{
 						ground[i][j]->set_water_true();
+						
+						
 						in_out[i][j + 1] = 'w';
-						if (ground[i - 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 6))
+						if (i != 0) 
 						{
-							in_out[i + 1][j] = 'n';
+							if (ground[i - 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 6))
+							{
+								in_out[i + 1][j] = 'n';
+							}
 						}
-						if (ground[i + 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 4))
+						
+						if (i != 0 && i != 4)
 						{
-							in_out[i - 1][j] = 's';
+							if (ground[i + 1][j]->get_water() == 1 && (ground[i - 1][j]->pipe_type() == 3 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 4))
+							{
+								
+								in_out[i - 1][j] = 's';
+							}
 						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 2)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i][j + 1] = 'w';
+						if (j != 4)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i][j + 1] = 'w';
+						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 6)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i + 1][j] = 'n';
+						if (i != 4)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i + 1][j] = 'n';
+						}
+					
 					}
 					if (ground[i][j]->pipe_type() == 7)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i - 1][j] = 's';
+						if (i != 0)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i - 1][j] = 's';
+						}
 					}
 
 				}
@@ -245,30 +325,49 @@ void runground(array<array<pipe*, 5>, 5> &ground)
 					{
 						ground[i][j]->set_water_true();
 						in_out[i - 1][j] = 's';
-						if (ground[i][j - 1]->get_water() == 1 && (ground[i][j - 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 4))
+						if (j != 0 && i != 0)
 						{
-							in_out[i][j + 1] = 'w';
+							if (ground[i][j - 1]->get_water() == 1 && (ground[i][j - 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 5 || ground[i - 1][j]->pipe_type() == 4))
+							{
+								in_out[i][j + 1] = 'w';
+							}
 						}
-						if (ground[i][j + 1]->get_water() == 1 && (ground[i][j + 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 6))
+			
+						if (j != 4 && i != 0)
 						{
-							in_out[i][j - 1] = 'e';
+							if (ground[i][j + 1]->get_water() == 1 && (ground[i][j + 1]->pipe_type() == 2 || ground[i - 1][j]->pipe_type() == 7 || ground[i - 1][j]->pipe_type() == 6))
+							{
+								in_out[i][j - 1] = 'e';
+							}
 						}
+					
 					}
 					if (ground[i][j]->pipe_type() == 3)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i - 1][j] = 's';
-
+						if (i != 0)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i - 1][j] = 's';
+						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 5)
 					{
-						ground[i][j]->set_water_true();
-						in_out[i][j + 1] = 'w';
+						if (j != 4)
+						{
+							ground[i][j]->set_water_true();
+							in_out[i][j + 1] = 'w';
+						}
+						
 					}
 					if (ground[i][j]->pipe_type() == 6)
 					{
+						if (j != 0)
+						{
+							in_out[i][j - 1] = 'e';
+						}
 						ground[i][j]->set_water_true();
-						in_out[i][j - 1] = 'e';
+						
 					}
 
 				}
@@ -279,12 +378,12 @@ void runground(array<array<pipe*, 5>, 5> &ground)
 
 
 
-
-	//cout<<"is: "<<in_out[1][3]<<endl;
-
 	if ((in_out[4][4] == 'w' && ground[4][4]->pipe_type() == 6) || (in_out[4][4] == 'n' && (ground[4][4]->pipe_type() == 1 || ground[4][4]->pipe_type() == 3)))
 	{
 		cout << endl << "wwwwwwiiiiiiiiiiiiiiinnnnnnnnnnn" << endl;
+		win();
+		
+		
 	}
 
 
@@ -361,6 +460,7 @@ void game_ground(array<array<pipe*, 5>, 5> &ground)
 	Sprite sp(image);
 
 	int rashti=2;
+	runground(ground);
 	while (window.isOpen())
 	{
 		Event event;
@@ -444,6 +544,7 @@ void game_ground(array<array<pipe*, 5>, 5> &ground)
 					if (rashti % 2 ==0 )
 					{
 						ground[0][0]->rotate();
+						runground(ground);
 
 					}
 					rashti++;
@@ -454,17 +555,268 @@ void game_ground(array<array<pipe*, 5>, 5> &ground)
 					if (rashti % 2 == 0)
 					{
 						ground[0][1]->rotate();
+						runground(ground);
 
 					}
 					rashti++;
+				}
+				if ((event.mouseButton.x >= 239 && event.mouseButton.x <= 356) && (event.mouseButton.y >= 0 && event.mouseButton.y <= 118))
+				{
 
-					
+					if (rashti % 2 == 0)
+					{
+						ground[0][2]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 356 && event.mouseButton.x <= 474) && (event.mouseButton.y >= 0 && event.mouseButton.y <= 118))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[0][3]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 474 && event.mouseButton.x <= 592) && (event.mouseButton.y >= 0 && event.mouseButton.y <= 118))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[0][4]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 0 && event.mouseButton.x <= 118) && (event.mouseButton.y >= 118 && event.mouseButton.y <= 236))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[1][0]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 118 && event.mouseButton.x <= 236) && (event.mouseButton.y >= 118 && event.mouseButton.y <= 236))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[1][1]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 236 && event.mouseButton.x <= 354) && (event.mouseButton.y >= 118 && event.mouseButton.y <= 236))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[1][2]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 354 && event.mouseButton.x <= 474) && (event.mouseButton.y >= 118 && event.mouseButton.y <= 236))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[1][3]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 474 && event.mouseButton.x <= 592) && (event.mouseButton.y >= 118 && event.mouseButton.y <= 236))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[1][4]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 0 && event.mouseButton.x <= 118) && (event.mouseButton.y >= 236 && event.mouseButton.y <= 354))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[2][0]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 118 && event.mouseButton.x <= 236) && (event.mouseButton.y >= 236 && event.mouseButton.y <= 354))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[2][1]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 236 && event.mouseButton.x <= 354) && (event.mouseButton.y >= 236 && event.mouseButton.y <= 354))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[2][2]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 354 && event.mouseButton.x <= 474) && (event.mouseButton.y >= 236 && event.mouseButton.y <= 354))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[2][3]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 474 && event.mouseButton.x <= 592) && (event.mouseButton.y >= 236 && event.mouseButton.y <= 354))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[2][4]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 0 && event.mouseButton.x <= 118) && (event.mouseButton.y >= 354 && event.mouseButton.y <= 474))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[3][0]->rotate();
+						runground(ground);
+
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 118 && event.mouseButton.x <= 236) && (event.mouseButton.y >= 354 && event.mouseButton.y <= 474))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[3][1]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 236 && event.mouseButton.x <= 354) && (event.mouseButton.y >= 354 && event.mouseButton.y <= 474))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[3][2]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 354 && event.mouseButton.x <= 474) && (event.mouseButton.y >= 354 && event.mouseButton.y <= 474))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[3][3]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 474 && event.mouseButton.x <= 592) && (event.mouseButton.y >= 354 && event.mouseButton.y <= 474))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[3][4]->rotate();
+						runground(ground);
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 0 && event.mouseButton.x <= 118) && (event.mouseButton.y >= 474 && event.mouseButton.y <= 592))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[4][0]->rotate();
+						runground(ground);
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 118 && event.mouseButton.x <= 236) && (event.mouseButton.y >= 474 && event.mouseButton.y <= 592))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[4][1]->rotate();
+						runground(ground);
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 236 && event.mouseButton.x <= 354) && (event.mouseButton.y >= 474 && event.mouseButton.y <= 592))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[4][2]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 354 && event.mouseButton.x <= 474) && (event.mouseButton.y >= 474 && event.mouseButton.y <= 592))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[4][3]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
+				}
+				if ((event.mouseButton.x >= 474 && event.mouseButton.x <= 592) && (event.mouseButton.y >= 474 && event.mouseButton.y <= 592))
+				{
+
+					if (rashti % 2 == 0)
+					{
+						ground[4][4]->rotate();
+						runground(ground);
+
+					}
+					rashti++;
 				}
 
 			}
 		}
 	
 	}
+	
 
 }
 void about()
@@ -489,8 +841,6 @@ void about()
 				window.close();
 			}
 
-
-
 		}
 
 		window.clear();
@@ -500,4 +850,36 @@ void about()
 	}
 
 }
+void win()
+{
+	RenderWindow window(VideoMode(805, 493), "About", Style::Titlebar | Style::Close);
+	Texture image;
+	if (!image.loadFromFile("win.png"))
+	{
+		std::cout << "error";
+	}
+
+	Sprite sp(image);
+
+	while (window.isOpen())
+	{
+		Event event;
+		while (window.pollEvent(event))
+		{
+
+			if (event.type == Event::Closed)
+			{
+				window.close();
+			}
+		}
+
+		window.clear();
+		window.draw(sp);
+		window.display();
+
+	}
+
+}
+
+
 
