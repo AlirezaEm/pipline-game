@@ -4,17 +4,14 @@
 class four_way : public pipe
 {
 private:
-    
+	int type = 1;
+	bool water = false;
 public:
    virtual void rotate();
-   int type =1;
    virtual int pipe_type();
    virtual void set_water_true();
    virtual void set_water_false();
    virtual bool get_water();
-   bool water = false;
- 
-
 };
 
 #endif

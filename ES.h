@@ -5,15 +5,14 @@
 class ES : public curved
 {
 private:
-    
-public:
 	int i = 0;
+	int type = 5;
+	bool water = false;
+public:
     virtual void rotate();
-    int type = 5;
     virtual int pipe_type();
     virtual void set_water_true();
     virtual void set_water_false();
     virtual bool get_water();
-    bool water = false;
 };
 #endif
