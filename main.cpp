@@ -307,6 +307,7 @@ void mainPage(array<array<pipe*, 5>, 5> &ground)
 	RenderWindow window(VideoMode(314, 598), "Menu", Style::Titlebar | Style::Close);
 	Texture image;
 	Music music;
+	music.setLoop(true);
 	if (!music.openFromFile("in_love.wav"))
 	{
 		cout << "music error";
