@@ -5,8 +5,6 @@ void ES::rotate()
 	{
 		ES::i = -2;
 	}
-
-
 	ES::type = 6 + ES::i;
 	++ES::i;
 }
